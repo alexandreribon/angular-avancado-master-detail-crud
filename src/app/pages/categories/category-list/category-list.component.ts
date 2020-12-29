@@ -1,9 +1,6 @@
-import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
-import { from } from 'rxjs';
 
-import { Category} from '../shared/category.model'
+import { Category } from '../shared/category.model'
 import { CategoryService} from '../shared/category.service'
 
 @Component({
@@ -24,7 +21,7 @@ export class CategoryListComponent implements OnInit {
     );
   }
 
-  deleteCategory(category) {
+  deleteCategory(category: Category) {
     const mustDelete = confirm("Deseja realmente excluir essa categoria?");
     if (mustDelete) {
       this.categoryService.delete(category.id).subscribe(
